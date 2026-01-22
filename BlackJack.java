@@ -59,7 +59,7 @@ public class BlackJack {
             System.out.println(DECK[i] + " ");
         }
     }
-
+    // randomly pick number and suits of cards for player 
     private static int dealInitialPlayerCards() {
         int card1 = dealCard();
         int card2 = dealCard();
@@ -68,6 +68,7 @@ public class BlackJack {
         return cardValue(card1) + cardValue(card2);
     }
 
+    // randomly picks numbers and suits of cards for dealer
     private static int dealInitialDealerCards() {
         int card1 = dealCard();
         System.out.println("Dealer's card: " + RANKS[card1] + " of " + SUITS[DECK[currentCardIndex] % 4]);

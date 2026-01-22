@@ -1,3 +1,9 @@
+// Michael Coker
+// 1/22/2026
+// Array and Cards 
+
+
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -99,7 +105,7 @@ public class BlackJack {
         System.out.println("Dealer's total is " + dealerTotal);
         return dealerTotal;
     }
-
+    // determines the winner based of card total.
     private static void determineWinner(int playerTotal, int dealerTotal) {
         if (dealerTotal > 21 || playerTotal > dealerTotal) {
             System.out.println("You win!");

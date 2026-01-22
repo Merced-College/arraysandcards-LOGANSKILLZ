@@ -2,7 +2,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class BlackJack {
-
+    
+    // A constant that can not be changed 
     private static final String[] SUITS = { "Hearts", "Diamonds", "Clubs", "Spades" };
     private static final String[] RANKS = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",
             "Ace" };
@@ -17,12 +18,15 @@ public class BlackJack {
 
         int playerTotal = dealInitialPlayerCards();
         int dealerTotal = dealInitialDealerCards();
+        
 
+        // refers to player busting and Dealer wins
         playerTotal = playerTurn(scanner, playerTotal);
         if (playerTotal > 21) {
             System.out.println("You busted! Dealer wins.");
             return;
         }
+        
 
         dealerTotal = dealerTurn(dealerTotal);
         determineWinner(playerTotal, dealerTotal);
@@ -35,7 +39,7 @@ public class BlackJack {
             DECK[i] = i;
         }
     }
-
+       // shuffles the deck 
     private static void shuffleDeck() {
         Random random = new Random();
         for (int i = 0; i < DECK.length; i++) {
@@ -63,7 +67,8 @@ public class BlackJack {
         System.out.println("Dealer's card: " + RANKS[card1] + " of " + SUITS[DECK[currentCardIndex] % 4]);
         return cardValue(card1);
     }
-
+     
+    // player turn and total based off the cards in there hand.
     private static int playerTurn(Scanner scanner, int playerTotal) {
         while (true) {
             System.out.println("Your total is " + playerTotal + ". Do you want to hit or stand?");
@@ -84,7 +89,8 @@ public class BlackJack {
         }
         return playerTotal;
     }
-
+     
+     // dealer action 
     private static int dealerTurn(int dealerTotal) {
         while (dealerTotal < 17) {
             int newCard = dealCard();
